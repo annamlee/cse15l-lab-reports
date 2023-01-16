@@ -18,7 +18,7 @@ There are three main steps.
 
 ![Image](first_ssh.png)
 
-5. After inputting your password, a successful remote connection should look similar to this.
+6. After inputting your password, a successful remote connection should look similar to this.
 
 ![Image](successful_login.png)
 
