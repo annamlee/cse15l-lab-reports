@@ -4,8 +4,9 @@ There are three main steps.
 ## 1. Installing VScode
 
 1. Go to the Visual Studio Code [website](https://code.visualstudio.com/download).
-2. Follow the instructions to download VSCode onto your computer.
-3. Open VSCode. It should look similar to the screenshot below, although the color scheme or menu bar may differ.
+2. Click on the "Download" button to download VSCode onto your computer.
+3. Be sure to download the correct version for your operating system: macOS for Macs and Winsdows for PCs.
+4. After a successful installation, open VSCode. It should look similar to the screenshot below, although the color scheme or menu bar may differ.
 
 ![Image](VSCode_screenshot.png)
 
