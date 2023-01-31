@@ -41,3 +41,6 @@ public void testReverseInPlace(){
   assertArrayEquals(new int[]{5}, input1);
 }
 ```
+Running the JUnit tests convey that the symptom of the failure-inducing input is `{3,2,3}`. The JUnit test displays an error message for running `testReverseInPlace2()`, stating that the expected array and the actual array were different. Because this was the only test that failed, it means that `testReverseInPlace()` passed and the expected array matched with the actual outputted array.
+![Image](reverse-array-failed-test.png)
+
