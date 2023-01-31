@@ -1,4 +1,4 @@
-# Lab Report 2
+# Lab Report 2 - Servers and Bugs
 Here is a report covering the labs from week 2 and week 3!
 
 ## Part 1
