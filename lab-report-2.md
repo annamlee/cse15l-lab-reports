@@ -41,6 +41,27 @@ public void testReverseInPlace(){
   assertArrayEquals(new int[]{5}, input1);
 }
 ```
+
 Running the JUnit tests convey that the symptom of the failure-inducing input is `{3,2,3}`. The JUnit test displays an error message for running `testReverseInPlace2()`, stating that the expected array and the actual array were different. Because this was the only test that failed, it means that `testReverseInPlace()` passed and the expected array matched with the actual outputted array.
 ![Image](reverse-array-failed-test.png)
 
+Here is the loop in `reverseInPlace(int[] arr)` that was causing the bug:
+```
+for(int i = 0; i < arr.length; i += 1){
+  arr[i] = arr[arr.length-i-1];
+}
+```
+
+Here is the modified for loop which fixes the bug:
+```
+for(int i = 0; i < arr.length/2; i += 1) {
+  int temp = arr[i];
+  arr[i] = arr[arr.length-i-1];
+  arr[arr.length-i-1] = temp;
+}
+```
+
+This change to the code addresses the issue because it only iterates through half of the array and swaps two indices per iteration. The first iteration swaps the first and last elements, the second iteration swaps the second and second to last element, etc. The original loop iterated through the entire array changing one element at a time, however, this caused an error because by the time the loop reached the second half of the array, the original elements in the previous indices are gone, having already been reassigned to the reversed values. This code edit avoids this issue by swapping two elements in one iteration.
+
+## Part 3
+During lab in week 2, I learned that ports for web serversers could get overloaded when too many people try to connect to the same one. Because there were so many people trying to use the port 4000, some people could not connect and had to instead choose another number between 1024 and 49151.
