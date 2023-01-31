@@ -14,6 +14,7 @@ In order for the String `"how are you"` to be concatenated to the existing strin
 
 Here is an example of unsuccessfully concatenating a string on `StringServer`, resulting in a 404 error.
 ![Image](404-not-found.png)
+
 In this screenshot, the method `handleRequest(URI url)` is called. Relevant arguments for this method include the URI object, which is `http://localhost:4000:add-messge?s=123` in this case. This goes through the method and gets split up into relevant strings. In lines 13-21 of `StringServer`, the url gets split up and into relevant values. On line 14, the code checks if `add-message` is in the url. Because of the typo in the url, `add-message` is not in the url, and the else block finishes. It reaches the end of the method and `404 Not Found!` gets returned at line 22. Because the url did not contain `add-message`, the value of `msg` does not change from this request. The value of `msg` only changes if the url is in the format `/add-message?s=<string>`.
 
 ## Part 2
