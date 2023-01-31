@@ -3,7 +3,7 @@ Here is a report covering the labs from week 2 and week 3!
 
 ## Part 1
 Here is a web server called `StringServer`. This server keeps track of a single string that gets added to by incoming requests. The input comes from the user-inputted URL. 
-The requests look like `/add-message?s=<string>`. Whatever string is inputted after the `=` will be concatenated to the existing strings, along with a new line (`\n`). The web page should display the entire history of strings inputted.
+The requests look like `/add-message?s=<string>`. Whatever string is inputted after the `=` will be concatenated to the existing strings, along with a new line (`\n`). The web page should display the entire history of strings inputted, each on a new line.
 
 Here is the code for `StringServer`:
 ![image](StringServer.png)
