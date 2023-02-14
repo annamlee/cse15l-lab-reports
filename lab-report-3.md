@@ -2,7 +2,7 @@
 Here is a report centered around researching commands for CSE 15L! The command I chose to research was `find`.
 
 ## Find only directories
-The `-type d` command-line option outputs all the directories in a given file. Source: https://www.redhat.com/sysadmin/linux-find-command
+The `-type d` command-line option outputs all the directories in a given file. This command is useful for when there are multiple files and directories within the working directory and the user is only interested in the directories, because using `ls` in this scenario would just flood the screen with unnecessary file names. Source: https://www.redhat.com/sysadmin/linux-find-command
 
 # Example 1
 ```
@@ -11,7 +11,7 @@ find ~/skill-demo1-data/written_2/travel_guides -type d
 /home/linux/ieng6/cs15lwi23/cs15lwi23aru/skill-demo1-data/written_2/travel_guides/berlitz1
 /home/linux/ieng6/cs15lwi23/cs15lwi23aru/skill-demo1-data/written_2/travel_guides/berlitz2
 ```
-This 
+This example shows using the `type d` command on the directory travel_guides, and the output is the two directories within travel_guides, berlitz1 and berlitz2.
 
 # Example 2
 ```
@@ -25,6 +25,7 @@ find ~/skill-demo1-data/written_2/non-fiction -type d
 /home/linux/ieng6/cs15lwi23/cs15lwi23aru/skill-demo1-data/written_2/non-fiction/OUP/Kauffman
 /home/linux/ieng6/cs15lwi23/cs15lwi23aru/skill-demo1-data/written_2/non-fiction/OUP/Rybczynski
 ```
+This example shows using the `type d` command on the directory non-fiction, and the output listed contains the paths to all 7 directories and sub-directories within non-fiction.
 
 ## Find empty files and directories
 The `-empty` command-line options outputs empty folders and files in the directory. Source: https://www.geeksforgeeks.org/find-command-in-linux-with-examples/.
