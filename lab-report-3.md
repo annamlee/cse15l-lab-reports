@@ -1,10 +1,11 @@
 # Lab Report 3 - Researching Commands
 Here is a report centered around researching commands for CSE 15L! The command I chose to research was `find`.
 
-## Find only directories
-The `-type d` command-line option outputs all the directories in a given file. This command is useful for when there are multiple files and directories within the working directory and the user is only interested in the directories, because using `ls` in this scenario would just flood the screen with unnecessary file names. Source: https://www.redhat.com/sysadmin/linux-find-command
+## 1. Find only directories
+The `-type d` command-line option outputs all the directories in a given file. This command is useful for when there are multiple files and directories within the working directory and the user is only interested in the directories because using `ls` in this scenario would just flood the screen with unnecessary file names. 
+Source: https://www.redhat.com/sysadmin/linux-find-command
 
-# Example 1
+### Example 1
 ```
 find ~/skill-demo1-data/written_2/travel_guides -type d
 /home/linux/ieng6/cs15lwi23/cs15lwi23aru/skill-demo1-data/written_2/travel_guides
@@ -13,7 +14,7 @@ find ~/skill-demo1-data/written_2/travel_guides -type d
 ```
 This example shows using the `type d` command on the directory travel_guides, and the output is the two directories within travel_guides, berlitz1 and berlitz2.
 
-# Example 2
+### Example 2
 ```
 find ~/skill-demo1-data/written_2/non-fiction -type d  
 /home/linux/ieng6/cs15lwi23/cs15lwi23aru/skill-demo1-data/written_2/non-fiction
@@ -27,145 +28,54 @@ find ~/skill-demo1-data/written_2/non-fiction -type d
 ```
 This example shows using the `type d` command on the directory non-fiction, and the output listed contains the paths to all 7 directories and sub-directories within non-fiction.
 
-## Find empty files and directories
-The `-empty` command-line options outputs empty folders and files in the directory. Source: https://www.geeksforgeeks.org/find-command-in-linux-with-examples/.
+## 2. Find empty files and directories
+The `-empty` command-line option outputs empty folders and files in the directory. This is useful for cleaning up directories, as you can easily locate empty directories and files to delete. 
+Source: https://www.geeksforgeeks.org/find-command-in-linux-with-examples/.
 
-# Example 1
+### Example 1
 ```
 find ./travel_guides -empty
 ./travel_guides/berlitz1/grep-results.txt
 ```
+This example shows that there is only one empty file in the directory travel_guides. Its name (grep-results.txt) and path is outputted.
 
-# Example 2
+### Example 2
 ```
 find ./non-fiction -empty
+
 ```
+This example shows that there are no empty files or directories in the directory non-fiction.
 
-## Deleting files
-This command-line option finds and deletes a file with confirmation. Source: https://www.geeksforgeeks.org/find-command-in-linux-with-examples/
+## 3. Deleting files
+This command-line option finds and deletes a file with confirmation. This command is useful for when users want to modify their directories by removing certain files. The confirmation assures that files are not mistakenly deleted. 
+Source: https://www.geeksforgeeks.org/find-command-in-linux-with-examples/
 
-# Example 1
+### Example 1
 ```
 find ./travel_guides/berlitz1 -name WhereToHongKong.txt -exec rm -i {} \;
 rm: remove regular file './travel_guides/berlitz1/WhereToHongKong.txt'? n
 ```
+This example shows a user inputting `n` when prompted for confirmation. Because of this input, the WhereToHongKong.txt file is not deleted and still resides in the berlitz1 directory. 
 
-# Example 2
+### Example 2
 ```
 find ./travel_guides/berlitz1 -name WhereToDublin.txt -exec rm -i {} \;
 rm: remove regular file './travel_guides/berlitz1/WhereToDublin.txt'? y
 ```
+This example shows a user inputting `y` when prompted for confirmation. Because of this input, the WhereToDublin.txt file is removed from the berlitz1 directory and no longer exists.
 
-## 
+## 4. Finding files by type
+This command-line option finds files by their specific type/extension. This is useful for when the user only wants certain types of files (ex. pdf, txt, png, etc). 
+Source: https://linuxhandbook.com/find-command-examples/.
 
-# Example 1
+### Example 1
 ```
-find . -type f -name "*.txt"
-./HandRHawaii.txt
-./HandRHongKong.txt
-./HandRIbiza.txt
-./HandRIsrael.txt
-./HandRIstanbul.txt
-./HandRJamaica.txt
-./HandRJerusalem.txt
-./HandRLakeDistrict.txt
-./HandRLasVegas.txt
-./HandRLisbon.txt
-./HandRLosAngeles.txt
-./HandRMadeira.txt
-./HandRMadrid.txt
-./HandRMallorca.txt
-./HistoryDublin.txt
-./HistoryEdinburgh.txt
-./HistoryEgypt.txt
-./HistoryFWI.txt
-./HistoryFrance.txt
-./HistoryGreek.txt
-./HistoryHawaii.txt
-./HistoryHongKong.txt
-./HistoryIbiza.txt
-./HistoryIndia.txt
-./HistoryIsrael.txt
-./HistoryIstanbul.txt
-./HistoryItaly.txt
-./HistoryJamaica.txt
-./HistoryJapan.txt
-./HistoryJerusalem.txt
-./HistoryLakeDistrict.txt
-./HistoryLasVegas.txt
-./HistoryMadeira.txt
-./HistoryMadrid.txt
-./HistoryMalaysia.txt
-./HistoryMallorca.txt
-./IntroDublin.txt
-./IntroEdinburgh.txt
-./IntroEgypt.txt
-./IntroFWI.txt
-./IntroFrance.txt
-./IntroGreek.txt
-./IntroHongKong.txt
-./IntroIbiza.txt
-./IntroIndia.txt
-./IntroIsrael.txt
-./IntroIstanbul.txt
-./IntroItaly.txt
-./IntroJamaica.txt
-./IntroJapan.txt
-./IntroJerusalem.txt
-./IntroLakeDistrict.txt
-./IntroLasVegas.txt
-./IntroLosAngeles.txt
-./IntroMadeira.txt
-./IntroMadrid.txt
-./IntroMalaysia.txt
-./IntroMallorca.txt
-./JungleMalaysia.txt
-./WhatToDublin.txt
-./WhatToEdinburgh.txt
-./WhatToEgypt.txt
-./WhatToFWI.txt
-./WhatToFrance.txt
-./WhatToGreek.txt
-./WhatToHawaii.txt
-./WhatToHongKong.txt
-./WhatToIbiza.txt
-./WhatToIndia.txt
-./WhatToIsrael.txt
-./WhatToIstanbul.txt
-./WhatToItaly.txt
-./WhatToJamaica.txt
-./WhatToJapan.txt
-./WhatToLakeDistrict.txt
-./WhatToLasVegas.txt
-./WhatToLosAngeles.txt
-./WhatToMadeira.txt
-./WhatToMalaysia.txt
-./WhatToMallorca.txt
-./WhereToDublin.txt
-./WhereToEdinburgh.txt
-./WhereToEgypt.txt
-./WhereToFWI.txt
-./WhereToFrance.txt
-./WhereToGreek.txt
-./WhereToHawaii.txt
-./find-results.txt
-./WhereToIbiza.txt
-./WhereToIndia.txt
-./WhereToIsrael.txt
-./WhereToIstanbul.txt
-./WhereToItaly.txt
-./WhereToJapan.txt
-./WhereToJerusalem.txt
-./WhereToLakeDistrict.txt
-./WhereToLosAngeles.txt
-./WhereToMadeira.txt
-./WhereToMadrid.txt
-./WhereToMalaysia.txt
-./WhereToMallorca.txt
-./grep-results.txt
-```
+find . -type f -name "*.png"
 
-# Example 2
+```
+This example shows a command to find all `.png` files in the directory berlitz1. The output conveys that there are no png files in berlitz1.
+
+### Example 2
 ```
 find . -type f -name "*.txt"
 ./ch1.txt
@@ -178,3 +88,4 @@ find . -type f -name "*.txt"
 ./ch8.txt
 ./ch9.txt
 ```
+This example shows a command to find all `.txt` files in the directory Abernathy, and the output lists out all such files in this directory.
