@@ -2,7 +2,7 @@
 Here is a report centered around researching commands for CSE 15L! The command I chose to research was `find`.
 
 ## 1. Find only directories
-The `-type d` command-line option outputs all the directories in a given file([source](https://www.redhat.com/sysadmin/linux-find-command)). This command is useful for when there are multiple files and directories within the working directory and the user is only interested in the directories because using `ls` in this scenario would just flood the screen with unnecessary file names. 
+The `-type d` command-line option outputs all the directories in a given file ([source](https://www.redhat.com/sysadmin/linux-find-command)). This command is useful for when there are multiple files and directories within the working directory and the user is only interested in the directories because using `ls` in this scenario would just flood the screen with unnecessary file names. 
 
 ### Example 1
 ```
@@ -49,7 +49,7 @@ The `-iname` command-line option outputs all directories and files that match th
 
 ### Example 1
 ```
-written_2 % find ./travel_guides/berlitz2 -iname bermuda-wheretogo.txt
+find ./travel_guides/berlitz2 -iname bermuda-wheretogo.txt
 ./travel_guides/berlitz2/Bermuda-WhereToGo.txt
 ```
 This example shows how the file Bermuda-WhereToGo.txt is outputted even though the inputted command was for bermuda-wheretogo.txt in all lowercase. The file with the matching name (excluding case) is returned.
