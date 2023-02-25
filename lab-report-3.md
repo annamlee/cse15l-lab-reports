@@ -2,8 +2,7 @@
 Here is a report centered around researching commands for CSE 15L! The command I chose to research was `find`.
 
 ## 1. Find only directories
-The `-type d` command-line option outputs all the directories in a given file. This command is useful for when there are multiple files and directories within the working directory and the user is only interested in the directories because using `ls` in this scenario would just flood the screen with unnecessary file names. 
-Source: https://www.redhat.com/sysadmin/linux-find-command
+The `-type d` command-line option outputs all the directories in a given file([source](https://www.redhat.com/sysadmin/linux-find-command)). This command is useful for when there are multiple files and directories within the working directory and the user is only interested in the directories because using `ls` in this scenario would just flood the screen with unnecessary file names. 
 
 ### Example 1
 ```
@@ -29,8 +28,7 @@ find ~/skill-demo1-data/written_2/non-fiction -type d
 This example shows using the `type d` command on the directory non-fiction, and the output listed contains the paths to all 7 directories and sub-directories within non-fiction.
 
 ## 2. Find empty files and directories
-The `-empty` command-line option outputs empty folders and files in the directory. This is useful for cleaning up directories, as you can easily locate empty directories and files to delete. 
-Source: https://www.geeksforgeeks.org/find-command-in-linux-with-examples/.
+The `-empty` command-line option outputs empty folders and files in the directory ([source](https://www.geeksforgeeks.org/find-command-in-linux-with-examples/)). This is useful for cleaning up directories, as you can easily locate empty directories and files to delete. 
 
 ### Example 1
 ```
@@ -46,46 +44,39 @@ find ./non-fiction -empty
 ```
 This example shows that there are no empty files or directories in the directory non-fiction.
 
-## 3. Deleting files
-This command-line option finds and deletes a file with confirmation. This command is useful for when users want to modify their directories by removing certain files. The confirmation assures that files are not mistakenly deleted. 
-Source: https://www.geeksforgeeks.org/find-command-in-linux-with-examples/
+## 3. Find files with a case-insensitive search
+The `-iname` command-line option outputs all directories and files that match the name, whether or not the cases match ([source](https://linuxhandbook.com/find-command-examples/)). This is useful for when a user does not remember what case their file name is. It also helps to speed up the finding process, as it would be easier to type in all lowercase instead of case specifying.
 
 ### Example 1
 ```
-find ./travel_guides/berlitz1 -name WhereToHongKong.txt -exec rm -i {} \;
-rm: remove regular file './travel_guides/berlitz1/WhereToHongKong.txt'? n
+written_2 % find ./travel_guides/berlitz2 -iname bermuda-wheretogo.txt
+./travel_guides/berlitz2/Bermuda-WhereToGo.txt
 ```
-This example shows a user inputting `n` when prompted for confirmation. Because of this input, the WhereToHongKong.txt file is not deleted and still resides in the berlitz1 directory. 
+This example shows how the file Bermuda-WhereToGo.txt is outputted even though the inputted command was for bermuda-wheretogo.txt in all lowercase. The file with the matching name (excluding case) is returned.
 
 ### Example 2
 ```
-find ./travel_guides/berlitz1 -name WhereToDublin.txt -exec rm -i {} \;
-rm: remove regular file './travel_guides/berlitz1/WhereToDublin.txt'? y
+find ./non-fiction/OUP/Kauffman -iname "CH4.TXT"
+./non-fiction/OUP/Kauffman/ch4.txt
 ```
-This example shows a user inputting `y` when prompted for confirmation. Because of this input, the WhereToDublin.txt file is removed from the berlitz1 directory and no longer exists.
+This example shows how the file ch4.txt from the directory Kauffman is outputted even though the inputted command was for CH4.TXT in all capitals. The correct file was returned despite the mismatch capitals.
 
-## 4. Finding files by type
-This command-line option finds files by their specific type/extension. This is useful for when the user only wants certain types of files (ex. pdf, txt, png, etc). 
-Source: https://linuxhandbook.com/find-command-examples/.
+## 4. Find files based on size
+The `-size` command-line option allows for searching for files based on their sizes ([source](https://linuxhandbook.com/find-command-examples/)). This is useful for when the user only wants files within a certain size range or if they want to see which files may need more refining or elaboration.
 
 ### Example 1
 ```
-find . -type f -name "*.png"
-
+find ./travel_guides/berlitz1 -size -1k   
+./travel_guides/berlitz1/HandRIstanbul.txt
+./travel_guides/berlitz1/HandRIbiza.txt
 ```
-This example shows a command to find all `.png` files in the directory berlitz1. The output conveys that there are no png files in berlitz1.
+This example shows a command to find all files in the directory berlitz1 that are smaller than 1 KB. The output shows that only HandRIstanbul.txt and HandRIbiza.txt are smaller than 1KB in this directory, meaning there is probably the least information for these locations.
 
 ### Example 2
 ```
-find . -type f -name "*.txt"
-./ch1.txt
-./ch14.txt
-./ch15.txt
-./ch2.txt
-./ch3.txt
-./ch6.txt
-./ch7.txt
-./ch8.txt
-./ch9.txt
+find ./travel_guides/berlitz2 -size +80k -size -1G 
+./travel_guides/berlitz2/Portugal-WhereToGo.txt
+./travel_guides/berlitz2/Canada-WhereToGo.txt
+./travel_guides/berlitz2/China-WhereToGo.txt
 ```
-This example shows a command to find all `.txt` files in the directory Abernathy, and the output lists out all such files in this directory.
+This example shows a command to find all files in the directory berlitz2 that are larger than 80 KB but smaller than 1 GB. The output shows that Portugal-WhereToGo.txt, Canada-WhereToGo.txt, and China-WhereToGo.txt are the only files in berlitz2 that fit this size range.
